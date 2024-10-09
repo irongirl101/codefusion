@@ -1,0 +1,133 @@
+<!--NOTE: FEEL FREE TO MAKE CHANGES ACCORDINGLY, ESP FILE NAMES AND STUFF.-->
+{% extends 'mainhack.html' %}
+
+{% block main_content %}
+  <title>Signup</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto400,700&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #181818;
+      
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #181818;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login {
+      background-color: #090b5c;
+      font-size: 2rem; 
+      color: white;
+      max-width: 175px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 1rem;
+      margin: 0 auto; 
+    }
+    
+    .container {
+      max-width: 90%; 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      background-color: #181818;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 2rem;
+      margin: 0 auto; 
+      color: white;
+    }
+    
+    .space {
+      margin-top: 10%; 
+    }
+    
+    .message {
+      color: red;
+      text-align: left;
+      margin-top: 1rem;
+      font-size: 14px;
+      line-height: 1.5;
+      padding-left: 1rem; 
+    }
+    
+    table {
+      margin: 0 auto;
+      width: 100%; 
+    }
+    
+    .primary-btn {
+    padding: 0.7rem 1rem;
+    height: 2.7rem;
+    display: block;
+    border: 0;
+    border-radius: 2px;
+    font-weight: 500;
+    background: #090a5c52;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  
+  .primary-btn:hover {
+    background-color: #090b5c;
+  }
+
+
+    .inputborder {
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px;
+      font-size: inherit;
+    }
+
+    ::placeholder { 
+      color: black;
+      opacity: 1; 
+    }
+    
+    :-ms-input-placeholder { 
+      color: black;
+    }
+    
+    ::-ms-input-placeholder {
+      color: black;
+    }
+  </style>
+  
+
+  <div class="overlay">
+    <div class="space"></div>
+    <div class="login">Signup</div>
+    <br>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="primary-btn" type="submit">Sign Up</button>
+        </form>
+      <br>
+    </div>
+    <div class="message">
+      {% if messages %}
+        <ul class="messages"> 
+          {% for msg in messages %}
+            <p>{{ msg }}</p>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

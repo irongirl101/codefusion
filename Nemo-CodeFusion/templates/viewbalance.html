@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet">
+  <style>
+      body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      background: #181818;
+      color: #fff;
+      overflow: hidden;
+      margin:5%;
+      font-size: 300%;
+    }
+    </style>
+
+
+<div style="margin-top: 10%;"></div>
+<div>Your Balance: {{bal}}<div>
+
+<!--graph comes here-->
+% block logout_button %}
+{% if request.user.is_authenticated %}
+<div class="header-right">
+    <a class="logout-link" href="{% url 'logout' %}">Logout</a>
+</div>
+{% endif %}
+{% endblock %}
